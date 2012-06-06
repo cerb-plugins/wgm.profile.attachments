@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.devblocks.com/schema/plugin.xsd">
-	<id>wgm.ticket.attachments</id>
+	<id>wgm.profile.attachments</id>
 	<name>Ticket Profile Attachments Tab</name>
-	<description>This plugin adds a new Attachments tab to ticket profiles, making it easier to manage multiple files that are associated with long conversations.  Sponsored by Pinnacle Technical Resources - http://www.pinnacle1.com/</description>
+	<description>This plugin adds a new Attachments tab to ticket profiles, making it easier to manage multiple files that are associated with long conversations.  You can also download all the attachments on a ticket as a single ZIP archive.  Sponsored by Pinnacle Technical Resources - http://www.pinnacle1.com/</description>
 	<author>WebGroup Media, LLC.</author>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<link>http://www.cerb6.com/</link>
 	<image>plugin.png</image>
  
@@ -12,7 +12,7 @@
 
 	<requires>
 		<app_version min="6.0" max="6.0.99" />
-		<!--<php_extension name="curl" />-->
+		<!--<php_extension name="zip" />-->
 	</requires>
  
 	<!-- Plugin Dependencies -->
@@ -21,20 +21,6 @@
 		<require plugin_id="cerberusweb.core" version="6.0.0" />
 	</dependencies>
 
-	<!-- Exported Classes -->
-	
-	<class_loader>
-		<!--
-		<file path="api/dao/example.php">
-			<class name="DAO_Example" />
-			<class name="Model_Example" />
-			<class name="Plugin_Example" />
-			<class name="SearchFields_Example" />
-			<class name="View_Example" />
-		</file>
-		-->
-	</class_loader>
-
 	<!-- Extensions -->
  
 	<extensions>
@@ -42,7 +28,7 @@
 		<!-- Profile Tab -->
 		
 		<extension point="cerberusweb.ui.context.profile.tab">
-			<id>wgm.ticket.attachments.tab</id>
+			<id>wgm.profile.attachments.tab</id>
 			<name>Attachments Tab</name>
 			<class>
 				<file>api/App.php</file>
@@ -56,6 +42,20 @@
 					</value>
 				</param>				
     			<param key="title" value="common.attachments" />
+			</params>
+		</extension>
+		
+		<!-- Controller -->
+		
+		<extension point="devblocks.controller">
+			<id>wgm.profile.attachments.controller.zip</id>
+			<name>Download ZIP Controller</name>
+			<class>
+				<file>api/App.php</file>
+				<name>WgmProfileAttachmentsZipController</name>
+			</class>
+			<params>
+				<param key="uri" value="wgm.profile.attachments" />
 			</params>
 		</extension>
 		
