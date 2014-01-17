@@ -146,14 +146,14 @@ class WgmProfileAttachmentsZipController extends DevblocksControllerExtension {
 			
 			$fp_filename = DevblocksPlatform::getTempFileInfo($fp);
 
-			if($zip instanceof ZipArchive) { /* @var $zip ZipArchive */ 
+			if($zip instanceof ZipArchive) { /* @var $zip ZipArchive */
 				$zip->addFile($fp_filename, $file->display_name);
 				
 			} else { /* @var $zip PclZip */
 				$zip->add(array(
 						array(
  							PCLZIP_ATT_FILE_NAME => $fp_filename,
-							PCLZIP_ATT_FILE_NEW_FULL_NAME => $file->display_name,							
+							PCLZIP_ATT_FILE_NEW_FULL_NAME => $file->display_name,
 						),
 					),
 					PCLZIP_OPT_REMOVE_ALL_PATH
@@ -163,7 +163,7 @@ class WgmProfileAttachmentsZipController extends DevblocksControllerExtension {
 			fclose($fp);
 		}
 		
-		if(extension_loaded('zip')) { 
+		if(extension_loaded('zip')) {
 			/* @var $zip ZipArchive */
 			$zip->close();
 		} else {
