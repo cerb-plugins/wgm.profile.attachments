@@ -42,8 +42,6 @@ class ProfileTab_WgmTicketAttachments extends Extension_ContextProfileTab {
 			 new DevblocksSearchCriteria(SearchFields_AttachmentLink::LINK_CONTEXT_ID, 'in', array_keys($messages)),
 		), true);
 		
-		C4_AbstractViewLoader::setView($view->id, $view);
-		
 		$tpl->assign('view', $view);
 		
 		// Template
