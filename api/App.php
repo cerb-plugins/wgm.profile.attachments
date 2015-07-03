@@ -28,9 +28,8 @@ class ProfileTab_WgmTicketAttachments extends Extension_ContextProfileTab {
 		
 		// Load an attachments view
 		
-		$defaults = new C4_AbstractViewModel();
+		$defaults = C4_AbstractViewModel::loadFromClass('View_AttachmentLink');
 		$defaults->id = 'ticket_attachments';
-		$defaults->class_name = 'View_AttachmentLink';
 		$defaults->is_ephemeral = true;
 		
 		if(null == ($view = C4_AbstractViewLoader::getView($defaults->id, $defaults))) {
