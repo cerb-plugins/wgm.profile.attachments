@@ -93,11 +93,11 @@ class WgmProfileAttachmentsZipController extends DevblocksControllerExtension {
 		$context_id = DevblocksPlatform::importGPC($_REQUEST['context_id'],'integer',0);
 		
 		if(empty($context) || empty($context_id))
-			die();
+			DevblocksPlatform::dieWithHttpError(null, 404);
 		
 		// Security
 		if(null == ($active_worker = CerberusApplication::getActiveWorker()))
-			die($translate->_('common.access_denied'));
+			DevblocksPlatform::dieWithHttpError($translate->_('common.access_denied'), 403);
 
 		// Ticket
 		if(0 != strcasecmp($context, CerberusContexts::CONTEXT_TICKET))
