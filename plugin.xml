@@ -4,21 +4,21 @@
 	<name>Ticket Profile Attachments Tab</name>
 	<description>This plugin adds a new Attachments tab to ticket profiles, making it easier to manage multiple files that are associated with long conversations.  You can also download all the attachments on a ticket as a single ZIP archive.  Sponsored by Pinnacle Technical Resources - http://www.pinnacle1.com/</description>
 	<author>Webgroup Media, LLC.</author>
-	<version>0.0.17</version>
+	<version>0.0.18</version>
 	<link>http://www.cerbweb.com/book/latest/plugins/wgm.profile.attachments.html</link>
 	<image>plugin.png</image>
  
  	<!-- Requirements -->
 
 	<requires>
-		<app_version min="7.2" max="7.2.99" />
+		<app_version min="7.2" max="7.3.99" />
 		<!--<php_extension name="zip" />-->
 	</requires>
  
 	<!-- Plugin Dependencies -->
 	
 	<dependencies>
-		<require plugin_id="cerberusweb.core" version="7.0.0" />
+		<require plugin_id="cerberusweb.core" version="7.3.0" />
 	</dependencies>
 
 	<!-- Extensions -->
