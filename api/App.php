@@ -145,7 +145,7 @@ class WgmProfileAttachmentsZipController extends DevblocksControllerExtension {
 				$zip->add(
 					array(
 						array(
- 							PCLZIP_ATT_FILE_NAME => $fp_filename,
+							PCLZIP_ATT_FILE_NAME => $fp_filename,
 							PCLZIP_ATT_FILE_NEW_FULL_NAME => $file->name,
 						),
 					),
@@ -179,7 +179,6 @@ class WgmProfileAttachmentsZipController extends DevblocksControllerExtension {
 
 		fpassthru($zip_fp);
 		fclose($zip_fp);
-		
 		exit;
 	}
 };
