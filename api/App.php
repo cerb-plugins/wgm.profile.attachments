@@ -5,7 +5,7 @@ if(!defined('PCLZIP_TEMPORARY_DIR'))
 if (class_exists('Extension_ContextProfileTab')):
 class ProfileTab_WgmTicketAttachments extends Extension_ContextProfileTab {
 	function showTab($context, $context_id) {
-		$tpl = DevblocksPlatform::getTemplateService();
+		$tpl = DevblocksPlatform::services()->template();
 		$active_worker = CerberusApplication::getActiveWorker();
 		
 		$tpl->assign('context', $context);
@@ -36,6 +36,7 @@ class ProfileTab_WgmTicketAttachments extends Extension_ContextProfileTab {
 			return;
 		
 		$view->addParamsWithQuickSearch(sprintf('on.msgs:(ticket.id:%d) OR on.comments:(on.ticket:(id:%d))', $context_id, $context_id), true);
+		$view->renderPage = 0;
 		
 		$tpl->assign('view', $view);
 		
